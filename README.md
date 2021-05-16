@@ -47,6 +47,7 @@ Update ```HOME```,  ```DATA_HOME``` and ```TRAIN_HOME``` in ```hpa_inference.py`
  ```python hpa_training.py --seed 2020 --factory HDF5 --backbone seresnext50_32x4d --gamma 0.25 --labels_file train_cleaned_default_external.csv --stage stage3 --pretrained_stage stage1```
 
 ![Model](resources/data.png)
+Trained weights are available [here](https://www.kaggle.com/mpware/hpa-models).
 
 **Usage:**
 Argument | Default | Description
