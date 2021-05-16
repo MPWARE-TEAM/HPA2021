@@ -67,10 +67,10 @@ Some numbers on models trained on 1GPU (RTX3090) 24GB vRAM, SSD:
 
 Model | Folds | seed | images | gamma | batch size | epochs | duration
 --- | --- | --- | --- | --- | --- | --- | ---
-SEResNeXt50 - Stage1 | 4 | 2020 | 89k | 0.5 | 36 | 48 | 20h per fold
-SEResNeXt50 - Stage2 | 4 | 2020 | 89k | 0.25 | 36 | 48 | 20h per fold
-SEResNeXt50 - Stage3 | 4 | 2020 | 98k | 0.5 | 36 | 48 | 20h per fold
-SEResNeXt101 - Stage1 (OOF only) | 4 | 12120 | 89k | 0.5 | 32 | 48 | 24h per fold
+SEResNeXt50 - Stage1 | 4 | 2020 | 89k | 0.5 | 36 | 48 | 24h per fold
+SEResNeXt50 - Stage2 | 4 | 2020 | 89k | 0.25 | 36 | 48 | 24h per fold
+SEResNeXt50 - Stage3 | 4 | 2020 | 98k | 0.5 | 36 | 48 | 24h per fold
+SEResNeXt101 - Stage1 | 4 | 12120 | 89k | 0.5 | 32 | 48 | 28h per fold
 
 Note: ```ComboLoss = alpha x classification_loss + beta x classification_loss_tiled + gamma x l1_loss```
 
