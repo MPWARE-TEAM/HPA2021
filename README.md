@@ -1,4 +1,4 @@
-# HPA 2021
+# Human Protein Atlas - Single Cell Classification - 2021
 [HPA 2021](https://www.kaggle.com/c/hpa-single-cell-image-classification/leaderboard) solution - Source code documentation
 
 **Dependencies:**
