@@ -61,12 +61,13 @@ OOF is optional, it can be used to training further cell-based models.
 - Holdout (10k images not used in training):
    ```python hpa_oof.py --seed 12120 --batch_size 32 --labels_file holdout.csv --fold 0 --backbone gluon_seresnext101_32x4d --weights_files ./models/siamese_gluon_seresnext101_32x4d_512_384_RGBY_fp16_CV4_v2.0/fold1/stage1/snapshots/model_best.pt ./models/siamese_gluon_seresnext101_32x4d_512_384_RGBY_fp16_CV4_v2.0/fold2/stage1/snapshots/model_best.pt ./models/siamese_gluon_seresnext101_32x4d_512_384_RGBY_fp16_CV4_v2.0/fold3/stage1/snapshots/model_best.pt ./models/siamese_gluon_seresnext101_32x4d_512_384_RGBY_fp16_CV4_v2.0/fold4/stage1/snapshots/model_best.pt ```
 
+# Documentation
 
-
+Model documentation can be downloaded [here](resources/HPA-2021-documentation.pdf).
 
 # TLDR
 
-[...] I decided to start with WSSS (Weakly-Supervised Semantic Segmentation) SOA approaches to learn something new. Full image training with multi labels and try to build a segmentation. Many solutions are based on CAM utilization. In short, at the end of the pipeline, make CAM grow and spread over the image on the regions of interest.  However, as cell masks were already available, I didn’t need to go with the full WSSS process and just intersect at some point CAM with cells to get predicted labels. I’ve experimented with both [Puzzle-CAM](https://arxiv.org/pdf/2101.11253.pdf) and [DRS](https://arxiv.org/pdf/2103.07246.pdf) (Discriminative Region Suppression) approaches. I finally got best results with a modified Puzzle-CAM trained on RGBY images and with a two stages inference (full image and per cell basic ensemble). 
+> [...] I decided to start with WSSS (Weakly-Supervised Semantic Segmentation) SOA approaches to learn something new. Full image training with multi labels and try to build a segmentation. Many solutions are based on CAM utilization. In short, at the end of the pipeline, make CAM grow and spread over the image on the regions of interest.  However, as cell masks were already available, I didn’t need to go with the full WSSS process and just intersect at some point CAM with cells to get predicted labels. I’ve experimented with both [Puzzle-CAM](https://arxiv.org/pdf/2101.11253.pdf) and [DRS](https://arxiv.org/pdf/2103.07246.pdf) (Discriminative Region Suppression) approaches. I finally got best results with a modified Puzzle-CAM trained on RGBY images and with a two stages inference (full image and per cell basic ensemble). 
 
 # Training
 
