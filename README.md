@@ -48,6 +48,24 @@ Update ```HOME```,  ```DATA_HOME``` and ```TRAIN_HOME``` in ```hpa_inference.py`
 
 ![Model](resources/data.png)
 
+**Usage:**
+Argument | Default | Description
+--- | --- | --- 
+factory | HDF5 | HDF5 (recommended) or None
+mtype | siamese | Only siamese currently
+backbone | seresnext50_32x4d | or gluon_seresnext101_32x4d, cspresnext50, regnety_064
+gamma | 0.5 | L1 loss weight
+lr | 0.0003 | Learning rate
+seed | 2020 | Fix randomess for reproducibility
+batch_size | 36 | 32 to 36 fit with 24GB GPU
+epochs | 48 | One epoch is around 30min
+workers | 8  | Concurrent workers
+resume_fold | 0 | To resume training after restart
+stage | stage1 | Stage to train
+pretrained_stage | None | Stage to load pretrained weights from
+labels_file | train_cleaned_default_external.csv | CSV file with labels
+additional_labels_file | None | Additional CSV file with labels like train_cleaned_2018.csv
+
 
 **OOF (Out Of Fold):**
 
