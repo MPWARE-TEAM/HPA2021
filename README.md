@@ -1,12 +1,12 @@
 # HPA 2021
-HPA 2021 solution - Source code documentation
+[HPA 2021](https://www.kaggle.com/c/hpa-single-cell-image-classification/leaderboard) solution - Source code documentation
 
 **Dependencies:**
-- Pytorch 1.7.1+
-- Timm 0.4.5+
-- Albumentations 0.5.2+
-- Iterative stratification 0.1.6
-- HPA Segmentation 0.1.7 (only for inference)
+- [Pytorch](https://pytorch.org) 1.7.1+
+- [Timm](https://github.com/rwightman/pytorch-image-models) 0.4.5+
+- [Albumentations](https://github.com/albumentations-team/albumentations) 0.5.2+
+- [Iterative stratification](https://github.com/trent-b/iterative-stratification) 0.1.6
+- [HPA Segmentation](https://github.com/CellProfiling/HPA-Cell-Segmentation) 0.1.7 (only for inference)
 
 ![Model](resources/training_code.png)
 
@@ -48,10 +48,12 @@ Update ```HOME```,  ```DATA_HOME``` and ```TRAIN_HOME``` in ```hpa_inference.py`
 
 ![Model](resources/data.png)
 
+
 **OOF (Out Of Fold):**
 
 The following script will generate OOF (related to step1 detailled in next section) for each image on for each detected cell. 
 OOF is optional, it can be used to training further cell-based models.
+Another model with SEResNeXt101 backbone has been trained but only for OOF purposes.
 
 - Fold 1
    ```python hpa_oof.py --seed 12120 --batch_size 32 --labels_file train_cleaned_default_external.csv --fold 1 --backbone gluon_seresnext101_32x4d --weights_files ./models/siamese_gluon_seresnext101_32x4d_512_384_RGBY_fp16_CV4_v2.0/fold1/stage1/snapshots/model_best.pt ```
@@ -60,6 +62,17 @@ OOF is optional, it can be used to training further cell-based models.
 
 - Holdout (10k images not used in training):
    ```python hpa_oof.py --seed 12120 --batch_size 32 --labels_file holdout.csv --fold 0 --backbone gluon_seresnext101_32x4d --weights_files ./models/siamese_gluon_seresnext101_32x4d_512_384_RGBY_fp16_CV4_v2.0/fold1/stage1/snapshots/model_best.pt ./models/siamese_gluon_seresnext101_32x4d_512_384_RGBY_fp16_CV4_v2.0/fold2/stage1/snapshots/model_best.pt ./models/siamese_gluon_seresnext101_32x4d_512_384_RGBY_fp16_CV4_v2.0/fold3/stage1/snapshots/model_best.pt ./models/siamese_gluon_seresnext101_32x4d_512_384_RGBY_fp16_CV4_v2.0/fold4/stage1/snapshots/model_best.pt ```
+
+Some numbers on models trained on 1GPU (RTX3090) 24GB vRAM, SSD:
+
+Model | Folds | seed | images | gamma | batch size | epochs | duration
+--- | --- | --- | --- | --- | --- | --- | ---
+SEResNeXt50 - Stage1 | 4 | 2020 | 89k | 0.5 | 36 | 48 | 20h per fold
+SEResNeXt50 - Stage2 | 4 | 2020 | 89k | 0.25 | 36 | 48 | 20h per fold
+SEResNeXt50 - Stage3 | 4 | 2020 | 98k | 0.5 | 36 | 48 | 20h per fold
+SEResNeXt101 - Stage1 (OOF only) | 4 | 12120 | 89k | 0.5 | 32 | 48 | 24h per fold
+
+Note: ```ComboLoss = alpha x classification_loss + beta x classification_loss_tiled + gamma x l1_loss```
 
 # Documentation
 
