@@ -82,7 +82,7 @@ Another model with SEResNeXt101 backbone has been trained but only for OOF purpo
 - Holdout (10k images not used in training):
    ```python hpa_oof.py --seed 12120 --batch_size 32 --labels_file holdout.csv --fold 0 --backbone gluon_seresnext101_32x4d --weights_files ./models/siamese_gluon_seresnext101_32x4d_512_384_RGBY_fp16_CV4_v2.0/fold1/stage1/snapshots/model_best.pt ./models/siamese_gluon_seresnext101_32x4d_512_384_RGBY_fp16_CV4_v2.0/fold2/stage1/snapshots/model_best.pt ./models/siamese_gluon_seresnext101_32x4d_512_384_RGBY_fp16_CV4_v2.0/fold3/stage1/snapshots/model_best.pt ./models/siamese_gluon_seresnext101_32x4d_512_384_RGBY_fp16_CV4_v2.0/fold4/stage1/snapshots/model_best.pt ```
 
-Some numbers on models trained on 1GPU (RTX3090) 24GB vRAM, SSD:
+Some numbers on models trained on 1GPU (RTX3090) 24GB vRAM, 10CPUs, 1TB SSD:
 
 Model | Folds | seed | images | gamma | batch size | epochs | duration
 --- | --- | --- | --- | --- | --- | --- | ---
