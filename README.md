@@ -15,7 +15,7 @@
 Download HPA data and generate HDF5 files:
 - image_512.hdf5 (21k images – [trainset](https://www.kaggle.com/c/hpa-single-cell-image-classification/data) – 512x512RGBY – 89.3GB)
 - image_external_512.hdf5 (68k + 10k images – [public external](https://www.kaggle.com/lnhtrang/hpa-public-data-download-and-hpacellseg) – 638.5GB)
-- image_additional_512.hdf5 (9k images – HPA 2018 – 37.2GB)
+- image_additional_512.hdf5 (9k images – [HPA 2018](https://console.cloud.google.com/storage/browser/kaggle-human-protein-atlas) – 37.2GB)
 
 With the following script:
 
