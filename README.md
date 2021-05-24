@@ -19,11 +19,11 @@ Download HPA data and generate HDF5 files:
 
 With the following script:
 
-```hdf5_dump.py --images_folder ./train/images/ --hdf5_output ./images_512.hdf5```
+```hdf5_dump.py --images_folder ./train/images/ --hdf5_output ./data/train/images_512.hdf5```
 
-```hdf5_dump.py --images_folder ./public_external/images/ --hdf5_output ./image_external_512.hdf5```
+```hdf5_dump.py --images_folder ./public_external/images/ --hdf5_output ./data/train/image_external_512.hdf5```
 
-```hdf5_dump.py --images_folder ./2018/images/ --hdf5_output ./image_additional_512.hdf5```
+```hdf5_dump.py --images_folder ./2018/images/ --hdf5_output ./data/train/image_additional_512.hdf5```
 
 HDF5 dump is recommended to speed up training. 512x512 RGBY images are generated once and re-used multiple times accross trainings. It should take around 24h to 36h depending on your hardware. It required around 1TB free disk space.
 
