@@ -35,7 +35,7 @@ Related CSV with images identifiers and labels are available in [data/](data/) f
 
 **Training:**
 
-Update ```HOME```,  ```DATA_HOME``` and ```TRAIN_HOME``` in ```hpa_inference.py``` if needed.
+Update ```HOME```,  ```DATA_HOME``` and ```TRAIN_HOME``` in ```hpa_inference.py``` if needed. Default working dir is ```./```, ```./data/```, ```./data/train/```
 
 - Stage 1: Train SEResNeXt50 backbone with 89k images (train set + external):
   ```python hpa_training.py --seed 2020 --factory HDF5 --backbone seresnext50_32x4d --gamma 0.50 --labels_file train_cleaned_default_external.csv```
