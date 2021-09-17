@@ -40,11 +40,11 @@ Update ```HOME```,  ```DATA_HOME``` and ```TRAIN_HOME``` in ```hpa_inference.py`
 - Stage 1: Train SEResNeXt50 backbone with 89k images (train set + external):
   ```python hpa_training.py --seed 2020 --factory HDF5 --backbone seresnext50_32x4d --gamma 0.50 --labels_file train_cleaned_default_external.csv```
  
-- Stage 2: Train SEResNeXt50 backbone with 98k images from stage 1 weights (train set + external + 2018):
-  ```python hpa_training.py --seed 2020 --factory HDF5 --backbone seresnext50_32x4d --gamma 0.50 --labels_file train_cleaned_default_external.csv --stage stage2 --pretrained_stage stage1 --additional_labels_file train_cleaned_2018.csv```
- 
-- Stage 3: Train SEResNeXt50 backbone with 89k images from stage 1 weights (train set + external):
+- Stage 2: Train SEResNeXt50 backbone with 89k images from stage 1 weights (train set + external):
  ```python hpa_training.py --seed 2020 --factory HDF5 --backbone seresnext50_32x4d --gamma 0.25 --labels_file train_cleaned_default_external.csv --stage stage3 --pretrained_stage stage1```
+ 
+- Stage 3: Train SEResNeXt50 backbone with 98k images from stage 1 weights (train set + external + 2018):
+  ```python hpa_training.py --seed 2020 --factory HDF5 --backbone seresnext50_32x4d --gamma 0.50 --labels_file train_cleaned_default_external.csv --stage stage2 --pretrained_stage stage1 --additional_labels_file train_cleaned_2018.csv```
 
 ![Model](resources/data.png)
 Trained weights are available [here](https://www.kaggle.com/mpware/hpa-models).
