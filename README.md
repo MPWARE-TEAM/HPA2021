@@ -50,6 +50,7 @@ Update ```HOME```,  ```DATA_HOME``` and ```TRAIN_HOME``` in ```hpa_inference.py`
 Trained weights are available [here](https://www.kaggle.com/mpware/hpa-models).
 
 **Usage:**
+
 Argument | Default | Description
 --- | --- | --- 
 factory | HDF5 | HDF5 (recommended) or None
